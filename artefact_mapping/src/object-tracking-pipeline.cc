@@ -178,10 +178,10 @@ void ObjectTrackingPipeline::triangulateTracks(
   artefact_msg.quality = 0; // Placeholder, not implemented yet!
   artefact_publisher_.publish(artefact_msg);
 
-  std::ifstream read_in("~/home/yoruseer/artifacts.csv", std::ofstream::app); //csv file saved /home/yoruseer/.ros/artifacts.csv
+  std::ifstream read_in("/home/yoruseer/artifacts.csv", std::ofstream::app); //csv file saved /home/yoruseer/.ros/artifacts.csv
 
   if(!read_in) {
-    artifacts.open ("~/home/yoruseer/artifacts.csv");
+    artifacts.open ("/home/yoruseer/artifacts.csv");
     //if (!artifacts.is_open()) {
     //}
     artifacts<<"timestamp"<<","<<"class"<<","<<"x"<<","<<"y"<<","<<"z"<<"\n";
@@ -189,7 +189,7 @@ void ObjectTrackingPipeline::triangulateTracks(
     artifacts.close();
   }
   else {
-    artifacts.open ("~/home/yoruseer/artifacts.csv", std::ofstream::app);
+    artifacts.open ("/home/yoruseer/artifacts.csv", std::ofstream::app);
     //if (!artifacts.is_open()) {
     //}
 
